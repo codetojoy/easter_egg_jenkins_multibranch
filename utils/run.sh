@@ -1,2 +1,2 @@
 
-java -classpath build/libs/* net.codetojoy.utils.BuildInfo
+java -classpath $1/utils/build/libs/* net.codetojoy.utils.BuildInfo
