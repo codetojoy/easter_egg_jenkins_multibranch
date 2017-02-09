@@ -25,5 +25,5 @@ node {
 stage "run script"
 node {
     sh "chmod 777 ${env.WORKSPACE}/utils/run.sh"
-    sh "${env.WORKSPACE}/utils/run.sh"
+    sh "${env.WORKSPACE}/utils/run.sh ${env.WORKSPACE}"
 }
