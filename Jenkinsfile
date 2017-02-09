@@ -3,7 +3,7 @@
 stage "initial checkout"
 
 node {
-    git url: "https://github.com/codetojoy/easter_egg_jenkins_multibranch.git"
+    checkout scm
 }
 
 stage "build"
