@@ -27,3 +27,13 @@ node {
     sh "chmod 777 ${env.WORKSPACE}/utils/run.sh"
     sh "${env.WORKSPACE}/utils/run.sh ${env.WORKSPACE}"
 }
+
+stage "post build"
+node {
+    when {
+        branch '*/master'
+    }
+    steps {
+        echo "master branch detected : WOULD DEPLOY HERE"
+    }
+}
