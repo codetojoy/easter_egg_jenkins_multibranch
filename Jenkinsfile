@@ -29,11 +29,9 @@ node {
 }
 
 stage "post build"
+when {
+    branch '*/master'
+}
 node {
-    when {
-        branch '*/master'
-    }
-    steps {
-        echo "master branch detected : WOULD DEPLOY HERE"
-    }
+    echo "master branch detected : WOULD DEPLOY HERE"
 }
