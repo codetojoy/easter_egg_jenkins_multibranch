@@ -28,6 +28,9 @@ node {
     sh "${env.WORKSPACE}/utils/run.sh ${env.WORKSPACE}"
 }
 
+/*
+see https://issues.jenkins-ci.org/browse/JENKINS-41853
+
 stage('post build') {
     when {
         expression {
@@ -39,3 +42,4 @@ stage('post build') {
         echo "master branch detected : WOULD DEPLOY HERE"
     }
 }
+*/
