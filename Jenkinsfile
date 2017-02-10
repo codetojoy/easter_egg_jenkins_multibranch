@@ -28,10 +28,18 @@ node {
     sh "${env.WORKSPACE}/utils/run.sh ${env.WORKSPACE}"
 }
 
-stage "post build"
-when {
-    branch '*/master'
+/*
+see https://issues.jenkins-ci.org/browse/JENKINS-41853
+
+stage('post build') {
+    when {
+        expression {
+            GIT_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+            return GIT_BRANCH == 'master'
+        }
+    }
+    steps {
+        echo "master branch detected : WOULD DEPLOY HERE"
+    }
 }
-node {
-    echo "master branch detected : WOULD DEPLOY HERE"
-}
+*/
