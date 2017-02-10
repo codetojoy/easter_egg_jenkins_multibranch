@@ -28,11 +28,14 @@ node {
     sh "${env.WORKSPACE}/utils/run.sh ${env.WORKSPACE}"
 }
 
-stage("post build") {
+stage('post build') {
     when {
-        branch 'master'
+        expression {
+            GIT_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+            return GIT_BRANCH == 'master'
+        }
     }
-    node {
+    steps {
         echo "master branch detected : WOULD DEPLOY HERE"
     }
 }
