@@ -28,10 +28,11 @@ node {
     sh "${env.WORKSPACE}/utils/run.sh ${env.WORKSPACE}"
 }
 
-stage "post build"
-when {
-    branch '*/master'
-}
-node {
-    echo "master branch detected : WOULD DEPLOY HERE"
+stage("post build") {
+    when {
+        branch 'master'
+    }
+    node {
+        echo "master branch detected : WOULD DEPLOY HERE"
+    }
 }
